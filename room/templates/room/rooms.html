@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+
+{% block title %}Rooms | {% endblock %}
+
+{% block content %}
+
+
+
+
+<div class="p-10 lg:p-20 text-center">
+    <label class="text-3xl lg:text-6xl text-purple-800">Rooms: </label><select id="topic-dropdown" class="px-8 py-3 rounded-xl">
+        <option value="">Choose Topic</option>
+        {% for topic in topics %}
+            <option value="{{ topic.id }}">{{ topic.name }}</option>
+        {% endfor %}
+    </select>
+</div>
+
+<div class="w-full flex flex-wrap items-center" id="room-list">
+    {% for room in rooms %}
+        <div class="w-full lg:w-1/4 px-3 py-3 room-item" data-topic="{{ room.topic.id }}">
+            <div class="p-4 bg-white shadow rounded-xl text-center">
+                <h2 class="mb-2 text-2xl font-semibold text-purple-600">{{ room.name }}</h2>
+                
+                <a href="{% url 'room' room.slug %}" class="px-5 py-3 block rounded-xl text-white bg-purple-600 hover:bg-purple-500">Join</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<script>
+document.getElementById('topic-dropdown').addEventListener('change', function() {
+    var selectedTopicId = this.value;
+    var roomList = document.getElementById('room-list');
+    var roomItems = roomList.getElementsByClassName('room-item');
+
+    // Hide all room items
+    for (var i = 0; i < roomItems.length; i++) {
+        roomItems[i].style.display = 'none';
+    }
+
+    // Show rooms associated with the selected topic
+    if (selectedTopicId) {
+        var roomsToShow = roomList.querySelectorAll('[data-topic="' + selectedTopicId + '"]');
+        for (var j = 0; j < roomsToShow.length; j++) {
+            roomsToShow[j].style.display = 'block';
+        }
+    } else {
+        // Show all rooms if no topic is selected
+        for (var k = 0; k < roomItems.length; k++) {
+            roomItems[k].style.display = 'block';
+        }
+    }
+});
+</script>
+{% endblock %}
