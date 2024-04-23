@@ -5,3 +5,4 @@ Admins can CRUD on rooms.
 Authenticated Users can join any room.
 Authenticated Users can send & read all messages in the room
 Hosted at http://44.203.58.29:8000/
+admin: http://44.203.58.29:8000/admin/
