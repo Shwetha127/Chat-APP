@@ -19,7 +19,7 @@ SECRET_KEY = 'django-insecure-!79n+mp+d)1-=z7w5ee9f5*74mhqbene^c*89j@(1gsot5&t@o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 LOGOUT_REDIRECT_URL = '/'
 LOGIN_REDIRECT_URL = '/rooms/'
@@ -57,7 +57,7 @@ ROOT_URLCONF = 'chat.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -96,7 +96,7 @@ DATABASES = {
         "ENGINE": "django.db.backends.mysql",
         "NAME": "chatroom",
         "USER" : "root" ,
-        "PASSWORD" : "Ai323#dmir$@" ,
+        "PASSWORD" : "admin" ,
         "HOST" : "localhost" ,
         "PORT" : "3306"
     }
