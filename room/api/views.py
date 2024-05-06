@@ -14,20 +14,22 @@ class RoomList(generics.ListCreateAPIView):
         queryset = Room.objects.all()
         topic = self.request.query_params.get('topic')
         if topic is not None:
-            queryset = queryset.filter(topic=topic)
+            queryset = queryset.filter(name=topic)
         return queryset
 
 
 class RoomDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Room.objects.all()
     serializer_class = RoomSerializer
-
+    queryset = Room.objects.all()
+    
 
 class TopicList(generics.ListCreateAPIView):
-    queryset = Topic.objects.all()
     serializer_class = TopicSerializer
+    queryset = Topic.objects.all()
+    
 
 
 class TopicDetail(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Topic.objects.all()
     serializer_class = TopicSerializer
+    queryset = Topic.objects.all()
+    
