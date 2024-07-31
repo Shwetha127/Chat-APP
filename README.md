@@ -10,8 +10,7 @@ Tools & Tech
 2. MySQL for database.
 3. Swagger for API documentation
 
-Run code using python manage.py runserver
-Localhost: http://127.0.0.1:8000/  
+Run code using python manage.py runserver                                                                                                                                                             Localhost: http://127.0.0.1:8000/  
 admin: http://127.0.0.1:8000/admin/         
 api_schema : http://127.0.0.1:8000/api_schema           
 Swagger Ui: http://127.0.0.1:8000/swagger         
